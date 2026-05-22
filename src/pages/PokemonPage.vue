@@ -211,6 +211,8 @@
       </div>
     </Transition>
   </main>
+
+  <div v-if="!gameStarted" class="welcome-bg" aria-hidden="true" />
 </template>
 
 <script setup>
@@ -437,6 +439,8 @@ const confettiStyle = (n) => {
 
 <style scoped>
 .page {
+  position: relative;
+  z-index: 1;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -445,6 +449,19 @@ const confettiStyle = (n) => {
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
+}
+
+.welcome-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image: url('/img/pokepattern.jpg');
+  background-repeat: repeat;
+  background-size: 320px;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  animation: drift 70s linear infinite;
 }
 
 .page__controls {
@@ -459,6 +476,7 @@ const confettiStyle = (n) => {
 }
 
 .welcome {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -479,6 +497,7 @@ const confettiStyle = (n) => {
   box-shadow: var(--shadow-card);
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .welcome__panel::before {
