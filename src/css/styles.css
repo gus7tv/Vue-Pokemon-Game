@@ -1,12 +1,167 @@
+:root {
+  color-scheme: light;
 
+  --bg-0: #f5f0ff;
+  --bg-1: #ece4ff;
+  --bg-2: #ffe8f5;
+  --surface: rgba(255, 255, 255, 0.6);
+  --surface-strong: rgba(255, 255, 255, 0.85);
+  --border: rgba(60, 30, 90, 0.12);
+  --border-strong: rgba(60, 30, 90, 0.24);
 
+  --text: #2a1054;
+  --text-dim: rgba(42, 16, 84, 0.7);
+  --text-muted: rgba(42, 16, 84, 0.5);
+
+  --holo-1: #ff5fa8;
+  --holo-2: #8a5cf6;
+  --holo-3: #2bbfd0;
+  --holo-4: #2dd47e;
+  --holo-5: #ffb43a;
+
+  --accent: #6f4cff;
+  --success: #1aaa55;
+  --danger: #e63056;
+  --warning: #d4892a;
+
+  --glow-soft: 0 0 40px rgba(138, 92, 246, 0.18);
+  --glow-strong: 0 0 80px rgba(255, 95, 168, 0.25);
+  --shadow-card: 0 30px 60px -20px rgba(138, 92, 246, 0.35),
+                 0 18px 36px -18px rgba(43, 191, 208, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
-    background: #ff6879;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FEAB7B, #ff6879);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FEAB7B, #ff6879); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Akshar', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--bg-0);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 10%, color-mix(in oklab, var(--holo-1) 35%, transparent), transparent 50%),
+    radial-gradient(circle at 80% 20%, color-mix(in oklab, var(--holo-3) 35%, transparent), transparent 55%),
+    radial-gradient(circle at 50% 90%, color-mix(in oklab, var(--holo-2) 45%, transparent), transparent 60%),
+    linear-gradient(180deg, var(--bg-1), var(--bg-0) 70%);
+  z-index: -2;
+  pointer-events: none;
+}
 
+body::after {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  background-image:
+    radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--text) 8%, transparent) 1px, transparent 0);
+  background-size: 32px 32px;
+  opacity: 0.4;
+  z-index: -1;
+  pointer-events: none;
+  animation: drift 60s linear infinite;
+}
 
-    margin: 0px;
-    font-family: 'Akshar', sans-serif !important;
+@keyframes drift {
+  to { transform: translate3d(-32px, -32px, 0); }
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+[role='button']:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+
+.holo-text {
+  background: linear-gradient(110deg, var(--holo-1), var(--holo-2) 40%, var(--holo-3) 70%, var(--holo-5));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: holo-text-shift 6s linear infinite;
+}
+
+@keyframes holo-text-shift {
+  to { background-position: 200% 0; }
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  padding: 18px 22px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.kbd {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 6px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border-strong);
+  border-bottom-width: 2px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
