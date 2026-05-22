@@ -159,24 +159,24 @@ const optionClass = (pokemon) => {
   white-space: nowrap;
 }
 
-.type-badge[data-type='fire'] { background: linear-gradient(135deg, #ff7043, #ff3d00); }
-.type-badge[data-type='water'] { background: linear-gradient(135deg, #42a5f5, #1565c0); }
-.type-badge[data-type='grass'] { background: linear-gradient(135deg, #66bb6a, #2e7d32); }
-.type-badge[data-type='electric'] { background: linear-gradient(135deg, #ffd54f, #f9a825); color: #4a2c00; }
-.type-badge[data-type='psychic'] { background: linear-gradient(135deg, #ec407a, #ad1457); }
-.type-badge[data-type='ice'] { background: linear-gradient(135deg, #80deea, #00838f); }
-.type-badge[data-type='dragon'] { background: linear-gradient(135deg, #7c4dff, #311b92); }
-.type-badge[data-type='dark'] { background: linear-gradient(135deg, #5d4037, #212121); }
-.type-badge[data-type='fairy'] { background: linear-gradient(135deg, #f8bbd0, #d81b60); }
-.type-badge[data-type='normal'] { background: linear-gradient(135deg, #bdbdbd, #757575); }
-.type-badge[data-type='fighting'] { background: linear-gradient(135deg, #ef5350, #b71c1c); }
-.type-badge[data-type='flying'] { background: linear-gradient(135deg, #90caf9, #5e35b1); }
-.type-badge[data-type='poison'] { background: linear-gradient(135deg, #ba68c8, #6a1b9a); }
-.type-badge[data-type='ground'] { background: linear-gradient(135deg, #d7a86e, #8d6e63); }
-.type-badge[data-type='rock'] { background: linear-gradient(135deg, #a1887f, #5d4037); }
-.type-badge[data-type='bug'] { background: linear-gradient(135deg, #aed581, #558b2f); }
-.type-badge[data-type='ghost'] { background: linear-gradient(135deg, #9575cd, #4527a0); }
-.type-badge[data-type='steel'] { background: linear-gradient(135deg, #b0bec5, #455a64); }
+.type-badge[data-type='fire'] { background: var(--danger); }
+.type-badge[data-type='water'] { background: var(--holo-3); }
+.type-badge[data-type='grass'] { background: var(--holo-4); color: #1d2129; }
+.type-badge[data-type='electric'] { background: var(--holo-5); color: #1d2129; }
+.type-badge[data-type='psychic'] { background: var(--holo-1); }
+.type-badge[data-type='dragon'] { background: var(--accent); }
+.type-badge[data-type='poison'] { background: var(--holo-2); }
+.type-badge[data-type='ground'] { background: var(--warning); }
+.type-badge[data-type='bug'] { background: var(--success); }
+.type-badge[data-type='ice'] { background: #7ec8e8; color: #1d2129; }
+.type-badge[data-type='fighting'] { background: #d8602a; }
+.type-badge[data-type='flying'] { background: #6ea8e8; }
+.type-badge[data-type='rock'] { background: #a08b6a; }
+.type-badge[data-type='ghost'] { background: #5b4b9e; }
+.type-badge[data-type='dark'] { background: #3d3a4d; }
+.type-badge[data-type='steel'] { background: #8a93a8; }
+.type-badge[data-type='fairy'] { background: #d98ec0; }
+.type-badge[data-type='normal'] { background: #9aa0ad; }
 
 .option.is-correct {
   background: color-mix(in oklab, var(--success) 25%, var(--surface));

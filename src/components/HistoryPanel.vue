@@ -25,12 +25,23 @@
             :class="{ 'is-correct': entry.correct, 'is-wrong': !entry.correct, 'is-shiny': entry.isShiny }"
           >
             <span class="history__icon">
-              <svg v-if="entry.correct" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12" />
+              <svg v-if="entry.correct" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="4" cy="14" r="2.2" />
+                <circle cx="8" cy="18" r="2.2" />
+                <circle cx="12" cy="14" r="2.2" />
+                <circle cx="16" cy="10" r="2.2" />
+                <circle cx="20" cy="6" r="2.2" />
               </svg>
-              <svg v-else viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
+              <svg v-else viewBox="0 0 24 24" width="14" height="14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="4" cy="4" r="2.2" />
+                <circle cx="8" cy="8" r="2.2" />
+                <circle cx="12" cy="12" r="2.2" />
+                <circle cx="16" cy="16" r="2.2" />
+                <circle cx="20" cy="20" r="2.2" />
+                <circle cx="20" cy="4" r="2.2" />
+                <circle cx="16" cy="8" r="2.2" />
+                <circle cx="8" cy="16" r="2.2" />
+                <circle cx="4" cy="20" r="2.2" />
               </svg>
             </span>
             <span class="history__name">
@@ -156,14 +167,13 @@ const collapsed = ref(false)
   width: 22px;
   height: 22px;
   border-radius: 50%;
+  color: #1d2129;
 }
 .is-correct .history__icon {
-  background: color-mix(in oklab, var(--success) 25%, transparent);
-  color: var(--success);
+  background: var(--holo-4);
 }
 .is-wrong .history__icon {
-  background: color-mix(in oklab, var(--danger) 25%, transparent);
-  color: var(--danger);
+  background: var(--danger);
 }
 
 .history__name {

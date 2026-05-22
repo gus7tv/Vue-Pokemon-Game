@@ -97,12 +97,23 @@
           :class="lastWasCorrect ? 'is-correct' : 'is-wrong'"
         >
           <span class="game__head-icon" aria-hidden="true">
-            <svg v-if="lastWasCorrect" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12" />
+            <svg v-if="lastWasCorrect" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="4" cy="14" r="1.9" />
+              <circle cx="8" cy="18" r="1.9" />
+              <circle cx="12" cy="14" r="1.9" />
+              <circle cx="16" cy="10" r="1.9" />
+              <circle cx="20" cy="6" r="1.9" />
             </svg>
-            <svg v-else viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
+            <svg v-else viewBox="0 0 24 24" width="22" height="22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="4" cy="4" r="1.9" />
+              <circle cx="8" cy="8" r="1.9" />
+              <circle cx="12" cy="12" r="1.9" />
+              <circle cx="16" cy="16" r="1.9" />
+              <circle cx="20" cy="20" r="1.9" />
+              <circle cx="20" cy="4" r="1.9" />
+              <circle cx="16" cy="8" r="1.9" />
+              <circle cx="8" cy="16" r="1.9" />
+              <circle cx="4" cy="20" r="1.9" />
             </svg>
           </span>
           <p class="verdict__summary">
@@ -735,14 +746,13 @@ const confettiStyle = (n) => {
   height: 44px;
   border-radius: 50%;
   flex-shrink: 0;
+  color: #1d2129;
 }
 .game__head--result.is-correct .game__head-icon {
-  background: color-mix(in oklab, var(--success) 22%, transparent);
-  color: var(--success);
+  background: var(--holo-4);
 }
 .game__head--result.is-wrong .game__head-icon {
-  background: color-mix(in oklab, var(--danger) 22%, transparent);
-  color: var(--danger);
+  background: var(--danger);
 }
 
 .game__head--result .verdict__summary {

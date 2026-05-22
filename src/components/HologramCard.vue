@@ -406,7 +406,7 @@ const onLeave = () => {
   transition: opacity 0.6s ease;
 }
 .card.is-shiny.is-revealed .card__shiny-foil {
-  opacity: 0.6;
+  opacity: 0.42;
 }
 
 /* twinkling golden sparkles */
@@ -423,8 +423,8 @@ const onLeave = () => {
 }
 
 @keyframes shinyTwinkle {
-  0%, 100% { opacity: 0.35; transform: scale(1); }
-  50%      { opacity: 0.8; transform: scale(1.05); }
+  0%, 100% { opacity: 0.22; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(1.05); }
 }
 
 /* golden border glow on the rarest card */
